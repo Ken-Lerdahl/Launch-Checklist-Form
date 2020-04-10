@@ -63,6 +63,7 @@ window.addEventListener("load", function() {
 
       else {
          validAfterChecks = true;
+         event.preventDefault();
          return validAfterChecks;
       }
    };
@@ -113,14 +114,16 @@ window.addEventListener("load", function() {
                readyForLaunch = false;
             }
             
-            else if (fuelLevelInput.value >= 10000 && cargoMassInput.value <= 10000) {
+           else if (fuelLevelInput.value >= 10000 && cargoMassInput.value <= 10000) {
                faultyItemsList.style.visibility = "visible";
                launchStatus.innerHTML = "Shuttle Is Ready for Launch";
                launchStatus.style.color = "green";
+               fuelStatus.innerHTML = "Fuel level high enough for launch."
+               cargoStatus.innerHTML = "Cargo mass low enough for launch."
                alert("Safe for launch, pack your bags!")
                readyForLaunch = true;
-            }
-            return readyForLaunch;
+           }
+            // return readyForLaunch;
          }
       }
    
